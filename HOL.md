@@ -14,7 +14,7 @@ In this lab, you will create a Virtual Machine with SQL Server installed using W
 In this hands-on lab, you will learn how to:
 
 - Configure a SQL Server Virtual Machine
-- Connect a sample Web application with the SQL Server using a public endpoint
+- Connect a sample Web application with SQL Server using a public endpoint
 - Deploy the sample Web application to a Cloud App in Windows Azure
 
 <a name="Prerequisites"></a>
@@ -34,7 +34,7 @@ The following is required to complete this hands-on lab:
 
 This hands-on lab includes the following exercises:
 
-- [Creating a SQL Server VM](#Exercise1)
+- [Creating a SQL Server Virtual Machine](#Exercise1)
 
 - [Deploying a Simple MVC4 Application](#Exercise2)
 
@@ -42,12 +42,12 @@ This hands-on lab includes the following exercises:
 Estimated time to complete this lab: **45 minutes**.
 
 <a name="Exercise1"></a>
-### Exercise 1: Creating a SQL Server VM ###
+### Exercise 1: Creating a SQL Server Virtual Machine ###
 
-In this exercise, you will create a new Virtual Machine with SQL Server and configure a public endpoint in order to access it remotely.
+In this exercise, you will create a new Virtual Machine with SQL Server and configure a public endpoint to access it remotely.
 
 <a name="Ex1Task1"></a>
-#### Task 1 - Creating a VM Using Windows Azure Portal ####
+#### Task 1 - Creating a Virtual Machine Using the Windows Azure Portal ####
 
 In this task, you will create a new Virtual Machine using the Windows Azure Portal.
 
@@ -61,32 +61,32 @@ In this task, you will create a new Virtual Machine using the Windows Azure Port
 
 	![Creating a New VM](Images/creating-a-new-vm.png?raw=true "Creating a New VM")
  
-	_Creating a New VM_
+	_Creating a New Virtual Machine_
 
-1. In the **Virtual machine operating system Selection** page, click **Platform Images** on the left menu and select the **SQL Server 2012** OS image from the list. Click the arrow to continue.
+1. In the **Virtual machine operating system Selection** page, click **Platform Images** on the left menu and select the **Microsoft SQL Server 2012 SP1 Evaluation Edition** OS image from the list. Click the next arrow to continue.
 
-1. In the **Virtual machine Configuration** page, enter a VM **Name**, complete the **Admin Password** and the **Confirmation** fields with the VM admin's password and set the VM **Size** to _Small_. Click the **Next** to continue.
+1. In the **Virtual machine Configuration** page, enter a **Virtual Machine Name**, complete the administrator credentials, by filling the **New Password** and **Confirm Password** fields. Lastly, set the Virtual Machine **Size** to _Small_ and click the next arrow to continue.
 
-	>**Note:** You will use these credentials in future steps to connect to the VM using remote desktop.
+	>**Note:** You will use these credentials in future steps to connect to the Virtual Machine using remote desktop.
 
 	![VM Configuration](Images/vm-configuration.png?raw=true "VM Configuration")
  
-	_VM Configuration_
+	_Virtual Machine Configuration_
 
 1. In the **Virtual machine Mode** page, select **Standalone Virtual Machine** option and provide a unique name for the **DNS Name**. Then select a **Storage Account** or leave the default value _Use Automatically Generated Storage Account_, select a **Region/Affinity Group/Virtual Network** and click **Next** to continue.
 
 
  	![Selecting VM mode](./Images/Selecting-VM-mode.png?raw=true "Selecting VM mode")
  
-	_Selecting VM mode_
+	_Selecting the Virtual Machine mode_
 
 1. In the **Virtual machine Options** page, leave the default options and click the **complete** button to create the VM.
 
 	> **Note:** It will take from 8 to 10 minutes for the Virtual Machine to complete the provisioning process.
 
-1. In the **Virtual Machines** section, you will see the Virtual Machine you created displaying a _provisioning_ status. Wait until it changes to _Running_ in order to continue with the following step.
+1. In the **Virtual Machines** section, you will see the Virtual Machine you just created, showing the _provisioning_ status. Wait until it changes to _Running_ in order to continue with the following step.
 
-1. In the **Virtual Machines** section, locate the Virtual Machine you just created and click on it's name. Once in the **Dashboard** page, click **Endpoints**.
+1. In the **Virtual Machines** section, locate the Virtual Machine you just created and click its name. Once in the **Dashboard** page, click **Endpoints**.
 
 1. Click **Add Endpoint**, select Add Endpoint option and then click the **Next** button to continue.
 
@@ -100,9 +100,9 @@ In this task, you will create a new Virtual Machine using the Windows Azure Port
 
 	_New Endpoint Details_
 
-1. Now, you will create and attach empty data disks to store the SQL Server logs and data files, and you will also add an endpoint. To do this, in the **Virtual Machines** section, select the SQL Server VM you created in this task.
+1. Now, you will create and attach empty data disks to store the SQL Server logs and data files, and you will also add an endpoint. To do this, in the **Virtual Machines** section, select the SQL Server Virtual Machine you created in this task.
 
-1. In the VM's **Dashboard**, click **Attach** in the menu at the bottom of the page and select **Attach Empty Disk**.
+1. In the Virtual Machine's **Dashboard**, click **Attach** in the menu at the bottom of the page and select **Attach Empty Disk**.
 
 	![Attach Empty Disk](Images/attach-empty-disk.png?raw=true "Attach Empty Disk")
 
@@ -123,21 +123,21 @@ In this task, you will create a new Virtual Machine using the Windows Azure Port
 
 In this task, you will install an SQL Server and configure it to enable remote access.
 
-1. In the Windows Azure Management Portal, click **Virtual Machines** on the left menu.
+1. In the Windows Azure Management Portal menu, click **Virtual Machines** on the left menu.
 
  	![Windows Azure Portal](./Images/Windows-Azure-Portal.png?raw=true "Windows Azure Portal")
  
-	_Windows Azure Portal_
+	_Windows Azure Portal Menu_
 
-1. Select your VM from the Virtual Machines list and click **Connect** to connect using **Remote Desktop Connection**.
+1. Select your virtual machine from the Virtual Machines list and click **Connect** to connect using **Remote Desktop Connection**. An RDP file will be downloaded to your local machine, which needs to be opened to launch _Remote Desktop_.
 
 1. In the Virtual Machine, open **Server Manager** from **Start | All Programs | Administrative Tools**.
 
-1. Expand **Storage** node and select **Disk Management** option.
+1. Expand the **Storage** node and select the **Disk Management** option.
 
  	![Disk Management(2)](Images/disk-management2.png?raw=true)
  
-	_Disks Management_
+	_Disk Management_
 
 1. After selecting Disk Management, an **Initialize Disk** dialog will be displayed. Leave the default values and click **OK**. 
 
@@ -149,19 +149,19 @@ In this task, you will install an SQL Server and configure it to enable remote a
  
 	_Disks Management_
 
-1. Follow the **New Simple Volume Wizard**. When asked for the **Volume Label** use _SQLData_.
+1. Follow the **New Simple Volume Wizard**, keeping all the default values. When asked for the **Volume Label** set it to _SQLData_.
 
 1. Wait until the process for the first disk is completed. Repeat the steps 5 to 8 but this time using the second disk. Set the **Volume Label** to _SQLLogs_.
 
-1. The **Disk Management** list of available disks should now show the **SQLData** and **SQLLogs** disks like in the following figure:
+1. The **Disk Management** list of available disks should now show the **SQLData** and **SQLLogs** disks, as in the following figure:
 
  	![Disks Management](./Images/Disks-Management.png?raw=true "Disks Management")
  
-	_Disks Management_
+	_Disk Management_
 
 1. Open **SQL Server Configuration Manager** from **Start | All Programs | Microsoft SQL Server 2012 | Configuration Tools**.
 
-1. Expand the **SQL Server Network Configuration** node and select **Protocols for MSSQLSERVER** (this option might change if you used a different instance name when installing SQL Server). Make sure **Shared Memory**, **Named Pipes** and **TCP/IP** protocols are enabled. To enable a protocol, right-click the protocol name and select **Enable**.
+1. Expand the **SQL Server Network Configuration** node and select **Protocols for MSSQLSERVER** (this option may be different if you used a different instance name when installing SQL Server). Make sure **Shared Memory**, **Named Pipes** and **TCP/IP** protocols are enabled. To enable a protocol, right-click the protocol name and select **Enable**.
 
  	![Enabling SQL Server Protocols](./Images/Enabling-SQL-Server-Protocols.png?raw=true "Enabling SQL Server Protocols")
  
@@ -202,23 +202,25 @@ In this task, you will add the **AdventureWorks** database that will be used by 
 
  	![Setting Database Default Locations](./Images/Setting-Database-Default-Locations.png?raw=true "Setting Database Default Locations")
  
-	_Setting Database Default Locations_
+	_Setting the Database Default Locations_
 
 1. Using Windows Explorer create the following folders: **F:\Data, G:\Logs** and **G:\Backups**.
 
-1. Restart SQL Server. In the **Object Explorer**, right-click on the server node and select **Restart**. 
+1. Restart SQL Server. To do this, go back to **SQL Server Management Studio**, and in the **Object Explorer**, right-click the server node and select **Restart**. 
 
-1. This lab uses the **AdventureWorks2012** database. Open an **Internet Explorer** browser and go to <http://msftdbprodsamples.codeplex.com/> to download  the **SQL Server 2012** sample databases.
+1. This lab uses the **AdventureWorks2012** database. Open **Internet Explorer** and browse to <http://msftdbprodsamples.codeplex.com/> to download  the **SQL Server 2012** sample databases.
 
-1. Right click the database file and open the properties. Click **unblock**.
+1. Right-click the downloaded file and select **Properties**. Click **Unblock**, and close the dialog by clicking **OK**.
+
+1. Decompress the database files.
 
 1. Add the **AdventureWorks2012** sample database to your SQL Server. To do this, open **SQL Server Management Studio**, connect to **(local)** using your Windows Account. Locate your SQL Server instance node and expand it.
 
-1. Right click **Databases** folder and select **Attach**.
+1. Right-click **Databases** folder and select **Attach**.
 
 	![Object Explorer - Attaching AdventureWorks Database](Images/attaching-adventureworks-database-menu.png?raw=true)
  
-	_Object Explorer - Attaching Adventureworks2012 Database_
+	_Object Explorer - Attaching the Adventureworks2012 Database_
 
 1. In the **Attach Databases** dialog, press **Add**. Browse to the path where the Sample Databases were installed and select **AdventureWorks2012** data file.  Click **OK**.
 
@@ -226,13 +228,11 @@ In this task, you will add the **AdventureWorks** database that will be used by 
 
  	![Attaching AdventureWorks Database](./Images/attaching-adventureworks-database.png?raw=true "Attaching AdventureWorks Database")
  
-	_Attaching AdventureWorks2012 Database_
+	_Attaching the AdventureWorks2012 Database_
 
 1. Click **OK** to attach the database. 
 
-1. Create a Full Text Catalog for the database. You will consume this feature with a MVC application you will deploy in the next exercise. To do this, expand **Storage** node within **AdventureWorks2012** database.
-
-1. Right-click **Full Text Catalogs** folder and select **New Full-Text Catalog**.
+1. Create a Full Text Catalog for the database. You will consume this feature with a MVC application you will deploy in the next exercise. To do this, expand the *Databases\AdventureWorks2012\Storage* node, right-click **Full Text Catalogs** folder and select **New Full-Text Catalog**.
 
 	![New Full-Text Catalog](Images/new-full-text-catalog.png?raw=true "New Full-Text Catalog")
  
@@ -242,15 +242,15 @@ In this task, you will add the **AdventureWorks** database that will be used by 
 
 	![New Full-Text Catalog Name](Images/new-full-text-catalog-name.png?raw=true "New Full-Text Catalog Name")
  
-	_Full-Text Catalog Name_
+	_Full-Text Catalog Creation_
 
-1. Right-click the **AdventureWorksCatalog** and select **Properties**. Select the **Tables/Views** menu item. Add the **Production.Product** table to the **Table/View objects assigned to the Catalog** list. Check _Name_ from **Eligible columns**, select **English** in _Language for Word Breaker_ and click **OK**.
+1. Right-click the **AdventureWorksCatalog** and select **Properties**. Select the **Tables/Views** menu item. Add the **Production.Product** table to the **Table/View objects assigned to the Catalog** list. Lastly, select _Name_ from **Eligible columns**, and choose **English** in _Language for Word Breaker_ column and click **OK**.
 
 	![Full-Text Catalog Properties](Images/full-text-catalog-properties.png?raw=true "Full-Text Catalog Properties")
  
 	_Full-Text Catalog Properties_
 
-1. Enable **Mixed Mode Authentication** to the SQL Server instance. To do this, in the **SQL Server Management Studio**, right-click the server instance and click **Properties**.
+1. Enable **Mixed Mode Authentication** in the SQL Server instance. To do this, in the **SQL Server Management Studio**, right-click the server instance and click **Properties**.
 
 1. Select the **Security** page in the right side pane and then select **SQL Server and Windows Authentication mode** under **Server Authentication** section. Click **OK** to save changes.
 
@@ -260,7 +260,7 @@ In this task, you will add the **AdventureWorks** database that will be used by 
 
 1. Restart the SQL Server instance. To do this, right-click the SQL Server instance and click **Restart**.
 
-1. Add a new user for the MVC4 application you will deploy in the following exercise. To do this, expand **Security** folder within the SQL Server instance. Right-click **Logins** folder and select **New Login**.
+1. Add a new user for the MVC4 application you will deploy in the following exercise. To do this, expand the **Security** folder within the SQL Server instance. Right-click the **Logins** folder and select **New Login**.
 
  	![Creating a New Login](./Images/create-new-login.png?raw=true "Creating a New Login")
  
@@ -268,7 +268,7 @@ In this task, you will add the **AdventureWorks** database that will be used by 
 
 1. In the **General** section, set the **Login name** to _CloudShop_. Select **SQL Server authentication** option and set the **Password** to _Azure$123_.
 
-	>**Note:** If you entered a different username or password than those suggested in this step you will need to update the web.config file for the MVC4 application you will use in the next exercise to match those values
+	>**Note:** If you entered a different username or password than those suggested in this step you will need to update the web.config file for the MVC4 application that you will use in the next exercise to match those values.
 
 1. Uncheck **Enforce password policy** option to avoid having to change the User's password the first time you log on and set the **Default database** to _AdventureWorks2012_.
 
@@ -282,17 +282,17 @@ In this task, you will add the **AdventureWorks** database that will be used by 
  
 	_Mapping the new User to the AdventureWorks Database_
 
-1. Expand **AdventureWorks2012** database within **Databases** folder. In the **Security** folder, expand **Users** and double-click **CloudShop** user.
+1. Expand the **AdventureWorks2012** database within **Databases** folder. In the **Security** folder, expand **Users** and double-click the **CloudShop** user.
 
-1. Select the **Membership** page, and select the _db_owner_ role checkbox for the **CloudShop** user and click **OK**.
+1. Go to the **Membership** page, and select the _db_owner_ role checkbox for the **CloudShop** user and click **OK**.
 
 	![Adding Database role membership to CloudShop user](./Images/Adding-Database-role-membership-to-CloudShop-user.png?raw=true "Adding Database role membership to CloudShop user")
  
 	_Adding Database role membership to CloudShop user_
  
-	>**Note:** The application you will deploy in the next exercise uses Universal Providers to manage sessions. The first time the application run the Provider will create a Sessions table within AdventureWorks database. For that reason, you are assigning db_owner role for the CloudShop user. Once you run the application for the first time, you can remove this role for the user as it will not need those permissions anymore.
+	>**Note:** The application you will deploy in the next exercise uses Universal Providers to manage sessions. The first time the application runs, the Provider will create a Sessions table within the AdventureWorks database. For that reason, you are assigning the db_owner role to the CloudShop user. Once you run the application for the first time, you can remove this role for the user as it will not need those permissions anymore.
 
-1. Close the **SQL Server Management Studio**.
+1. Close **SQL Server Management Studio**.
 
 1. In order to allow the MVC4 application access the SQL Server database you will need to add an **Inbound Rule** for the SQL Server requests in the **Windows Firewall**. To do this, open **Windows Firewall with Advance Security** from **Start | All Programs | Administrative Tools**.
 
@@ -302,19 +302,19 @@ In this task, you will add the **AdventureWorks** database that will be used by 
  
 	_Creating an Inbound Rule_
 
-1. In the **New Inbound Rule Wizard**, select _Port_ as **Rule Type** and click **Next**.
+1. In the **New Inbound Rule Wizard**, select _Port_ as the **Rule Type** and click **Next**.
 
 	![New Inbound Rule Type](Images/new-inbound-rule-type.png?raw=true "Inbound Rule Type")
  
 	_Inbound Rule's Type_
 
-1. In **Protocols and Ports** step, select **Specific local ports** and set its value to _1433_. Click **Next** to continue.
+1. In the **Protocols and Ports** step, select **Specific local ports** and set its value to _1433_. Click **Next** to continue.
 
 	![Inbound Rule's Local Port](Images/inbound-rules-local-port.png?raw=true "Inbound Rule's Local Port")
  
 	_Inbound Rule's Local Port_
 
-1. In the **Action** step, make sure **Allow the connection** option is selected and click **Next**.
+1. In the **Action** step, make sure the **Allow the connection** option is selected and click **Next**.
 
 	![Inbound Rule's Action](Images/inbound-rules-action.png?raw=true "Inbound Rule's Action")
  
@@ -328,7 +328,7 @@ In this task, you will add the **AdventureWorks** database that will be used by 
  
 	_New Inbound Rule_
 
-1. Close **Windows Firewall with Advanced Security** window and then close the **Remote Desktop Connection**.
+1. Close the **Windows Firewall with Advanced Security** window and then close the **Remote Desktop Connection**.
 
 <a name="Exercise2"></a>
 ### Exercise 2: Deploying a Simple MVC4 Application ###
@@ -336,7 +336,7 @@ In this task, you will add the **AdventureWorks** database that will be used by 
 In this exercise, you will configure a simple Web application to connect to the SQL Server instance you created in the previous exercise, by using a public endpoint. You will test the application using the local Azure Emulator. Then, you will publish the application to **Windows Azure** and run it in the Cloud.
 
 <a name="Ex2Task1"></a>
-#### Task 1 - Configuring the MVC4 Application to Connect to an SQL Server Instance ####
+#### Task 1 - Configuring the MVC4 Application to Connect to a SQL Server Instance ####
 
 In this task, you will change the connection string to point to the SQL Server instance created in the previous exercise.
 
@@ -344,13 +344,13 @@ In this task, you will change the connection string to point to the SQL Server i
 
 1. Open the solution **IaaSDeploySimpleApp.sln** located in the folder **Ex02-DeploySampleApp** under the **Source** folder of this lab.
 
-1. Open the **Web.config** file and locate the **connectionStrings** node. Replace the **Data Source** attribute values with the address of the public DNS of the SQL Server Virtual Machine, the SQL Server instance name and the public port endpoint that you created in the previous exercise (For example: _vmname.cloudapp.net,57500_).
+1. Open the **Web.config** file of the **CloudShop** project and locate the **connectionStrings** node. Replace the **Data Source** attribute values with the address of the public DNS of the SQL Server Virtual Machine, the SQL Server instance name and the public port endpoint that you created in the previous exercise (For example: _vmname.cloudapp.net,57500_).
 
 	<!--mark: 1-5-->
 	````XML
 	<connectionStrings>
-		<add name="DefaultConnection" connectionString="Data Source=[YOUR-VM-NAME].cloudapp.net, 57500;initial catalog=AdventureWorksLT2008R2;Uid=CloudShop;Password=Azure$123;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
-		<add name="AdventureWorksEntities" connectionString="metadata=res://*/Models.AdventureWorks.csdl|res://*/Models.AdventureWorks.ssdl|res://*/Models.AdventureWorks.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source= [YOUR-VM-NAME].cloudapp.net, 57500;initial catalog=AdventureWorksLT2008R2;Uid=CloudShop;Password=Azure$123;multipleactiveresultsets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+		<add name="DefaultConnection" connectionString="Data Source=[YOUR-VM-DNS-NAME].cloudapp.net, 57500;initial catalog=AdventureWorksLT2008R2;Uid=CloudShop;Password=Azure$123;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
+		<add name="AdventureWorksEntities" connectionString="metadata=res://*/Models.AdventureWorks.csdl|res://*/Models.AdventureWorks.ssdl|res://*/Models.AdventureWorks.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source= [YOUR-VM-DNS-NAME].cloudapp.net, 57500;initial catalog=AdventureWorksLT2008R2;Uid=CloudShop;Password=Azure$123;multipleactiveresultsets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
 	</connectionStrings>
 	````
 
@@ -420,4 +420,4 @@ By completing this hands-on lab, you have learnt how to:
 
 - Configure a SQL Server Virtual Machine
 - Connect a sample Web application with the SQL Server using a public endpoint
-- Deploy the sample Web application to a Cloud App in Windows Azure
+- Deploy a sample Web application to a Cloud App in Windows Azure
