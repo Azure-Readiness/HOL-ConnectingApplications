@@ -24,9 +24,7 @@ The following is required to complete this hands-on lab:
 
 - [Visual Studio Express 2012 for Web](http://www.microsoft.com/visualstudio/) or greater
 - [Windows Azure Tools for Microsoft Visual Studio 1.8](http://www.microsoft.com/windowsazure/sdk/)
-- A Windows Azure subscription with the Virtual Machines Preview enabled - [sign up for a free trial](http://aka.ms/WATK-FreeTrial)
-
->**Note:** This lab was designed for Windows 8.
+- A Windows Azure subscription - [sign up for a free trial](http://aka.ms/WATK-FreeTrial)
 
 ---
 <a name="Exercises"></a>
