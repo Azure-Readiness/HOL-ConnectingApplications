@@ -412,7 +412,7 @@ In this task you will download your account's publish settings and publish the W
 ---
 
 <a name="Summary"></a>
-### Summary ###
+## Summary ##
 
 By completing this hands-on lab, you have learnt how to:
 
