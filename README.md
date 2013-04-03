@@ -1,4 +1,4 @@
-﻿# Connecting a PaaS application to an IaaS Application - for Visual Studio 2012 #
+# Connecting a PaaS application to an IaaS Application #
 
 ## Hands-on Lab ##
 
