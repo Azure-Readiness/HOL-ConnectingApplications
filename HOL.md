@@ -57,7 +57,7 @@ In this task, you will create a new Virtual Machine using the Windows Azure Port
 	
 1. Click **New** and select **Compute** | **Virtual Machine** option and then **From Gallery**.
 
-	![Creating a New VM](Images/creating-a-new-vm.png?raw=true "Creating a New VM")
+	![Creating a New virtual machine](Images/creating-a-new-vm.png?raw=true "Creating a New virtual machine")
  
 	_Creating a New Virtual Machine_
 
@@ -67,18 +67,18 @@ In this task, you will create a new Virtual Machine using the Windows Azure Port
 
 	>**Note:** You will use these credentials in future steps to connect to the Virtual Machine using remote desktop.
 
-	![VM Configuration](Images/vm-configuration.png?raw=true "VM Configuration")
+	![Virtual Machine Configuration](Images/vm-configuration.png?raw=true "Virtual Machine Configuration")
  
 	_Virtual Machine Configuration_
 
 1. In the **Virtual machine Mode** page, select **Standalone Virtual Machine** option and provide a unique name for the **DNS Name**. Then select a **Storage Account** or leave the default value _Use Automatically Generated Storage Account_, select a **Region/Affinity Group/Virtual Network** and click **Next** to continue.
 
 
- 	![Selecting VM mode](./Images/Selecting-VM-mode.png?raw=true "Selecting VM mode")
+ 	![Selecting Virtual Machine mode](./Images/Selecting-VM-mode.png?raw=true "Selecting Virtual Machine mode")
  
 	_Selecting the Virtual Machine mode_
 
-1. In the **Virtual machine Options** page, leave the default options and click the **complete** button to create the VM.
+1. In the **Virtual machine Options** page, leave the default options and click the **complete** button to create the virtual machine.
 
 	> **Note:** It will take from 8 to 10 minutes for the Virtual Machine to complete the provisioning process.
 
@@ -110,9 +110,9 @@ In this task, you will create a new Virtual Machine using the Windows Azure Port
 
 1. Wait until the process to attach the disk finishes. Repeat the steps 11 to 13 to create a second disk.
 
-1. You will see three disks for the VM: one for the **OS** and other two for **Data** and **Logs**.
+1. You will see three disks for the virtual machine: one for the **OS** and other two for **Data** and **Logs**.
 
-	> **Note:** It might take a few minutes until the data disks appear in the VM's dashboard within the Azure Portal.
+	> **Note:** It might take a few minutes until the data disks appear in the virtual machine's dashboard within the Azure Portal.
 
 
 
@@ -172,7 +172,7 @@ In this task, you will install an SQL Server and configure it to enable remote a
 
 In this task, you will add the **AdventureWorks** database that will be used by the sample application in the following exercise.
 
-1. In order to enable downloads from IE you will need to update **Internet Explorer Enhanced Security Configuration**. In the Azure VM, open **Server Manager** from **Start | All Programs | Administrative Tools**.
+1. In order to enable downloads from IE you will need to update **Internet Explorer Enhanced Security Configuration**. In the Azure Virtual Machine, open **Server Manager** from **Start | All Programs | Administrative Tools**.
 
 1. In the **Server Manager** window, click **Configure IE ESC** within the **Security Information** section.
 
@@ -186,7 +186,7 @@ In this task, you will add the **AdventureWorks** database that will be used by 
  
 	_Internet Explorer Enhanced Security_
 
-	>**Note:** Modifying Internet Explorer Enhanced Security configurations is not good practice and is only for the purpose of this particular lab. The correct approach should be to download the files locally and then copy them to a shared folder or directly to the VM.
+	>**Note:** Modifying Internet Explorer Enhanced Security configurations is not good practice and is only for the purpose of this particular lab. The correct approach should be to download the files locally and then copy them to a shared folder or directly to the virtual machine.
 
 1. Open the SQL Server Management Studio from **Start | All Programs | Microsoft SQL Server 2012 | SQL Server Management Studio**.
 
@@ -206,7 +206,7 @@ In this task, you will add the **AdventureWorks** database that will be used by 
 
 1. Restart SQL Server. To do this, go back to **SQL Server Management Studio**, and in the **Object Explorer**, right-click the server node and select **Restart**. 
 
-1. This lab uses the **AdventureWorks2012** database. Open **Internet Explorer** and browse to <http://msftdbprodsamples.codeplex.com/> to download  the **SQL Server 2012** sample databases.
+1. This lab uses the **AdventureWorks2012** database. Open **Internet Explorer** and browse to <http://msftdbprodsamples.codeplex.com/> to download the **SQL Server 2012** sample databases.
 
 1. Right-click the downloaded file and select **Properties**. Click **Unblock**, and close the dialog by clicking **OK**.
 
