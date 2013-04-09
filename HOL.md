@@ -63,7 +63,7 @@ In this task, you will create a new Virtual Machine using the Windows Azure Port
 
 1. In the **Virtual machine operating system Selection** page, click **Platform Images** on the left menu and select the **Microsoft SQL Server 2012 SP1 Evaluation Edition** OS image from the list. Click the next arrow to continue.
 
-1. In the **Virtual machine Configuration** page, enter a **Virtual Machine Name**, complete the administrator credentials, by filling the **New Password** and **Confirm Password** fields. Lastly, set the Virtual Machine **Size** to _Small_ and click the next arrow to continue.
+1. In the **Virtual machine Configuration** page, enter a **Virtual Machine Name**, provide a user name for the **New User Name** field and a password for the **New Password** and **Confirm Password** fields. Lastly, set the Virtual Machine **Size** to _Small_ and click **Next** to continue.
 
 	>**Note:** You will use these credentials in future steps to connect to the Virtual Machine using remote desktop.
 
