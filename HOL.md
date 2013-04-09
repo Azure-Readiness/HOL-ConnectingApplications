@@ -192,7 +192,7 @@ In this task, you will add the **AdventureWorks** database that will be used by 
 
 1. Connect to the SQL Server 2012 default instance using your Windows Account.
 
-1. Now, you will update the database's default locations in order to split the DATA from the LOGS. To do this, right click on you SQL Server instance and select **Properties**.
+1. Now, you will update the database's default locations in order to split the DATA from the LOGS. To do this, right click on your SQL Server instance and select **Properties**.
 
 1. Select **Database Settings** from the left side pane.
 
@@ -204,7 +204,7 @@ In this task, you will add the **AdventureWorks** database that will be used by 
 
 1. Using Windows Explorer create the following folders: **F:\Data, G:\Logs** and **G:\Backups**.
 
-1. Restart SQL Server. To do this, go back to **SQL Server Management Studio**, and in the **Object Explorer**, right-click the server node and select **Restart**. 
+1. Restart SQL Server. To do this, go back to **SQL Server Management Studio**, and in the **Object Explorer**, right-click the server node and select **Restart**. Confirm the prompted dialog.
 
 1. This lab uses the **AdventureWorks2012** database. Open **Internet Explorer** and browse to <http://msftdbprodsamples.codeplex.com/> to download the **SQL Server 2012** sample databases.
 
@@ -220,7 +220,7 @@ In this task, you will add the **AdventureWorks** database that will be used by 
  
 	_Object Explorer - Attaching the Adventureworks2012 Database_
 
-1. In the **Attach Databases** dialog, press **Add**. Browse to the path where the Sample Databases were installed and select **AdventureWorks2012** data file.  Click **OK**.
+1. In the **Attach Databases** dialog, press **Add**. Browse to the path where the Sample Databases were installed and select **AdventureWorks2012** data file. Click **OK**.
 
 1. Now, select the AdventureWorks2012 Log's row within **database details** and click **Remove**.
 
