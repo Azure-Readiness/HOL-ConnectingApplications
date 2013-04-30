@@ -10,7 +10,7 @@
   <Description>In this hands-on lab you will create a Virtual Machine with SQL Server installed using Windows Azure Management Portal. Then you will modify a sample Web application to connect to the SQL Server using a public endpoint.</Description>  
   <Document ConversionType="Html">.\HOL.md</Document>
   <Title>Connecting a PaaS Application to an IaaS Application</Title>
-  <Version>1.0.0</Version>
+  <Version>1.0.1</Version>
   <Source>.\Source</Source>
   <DependencyChecker>.\Source\Setup\Dependencies.depi</DependencyChecker>
   <CustomProperties>
